@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
@@ -19,6 +20,7 @@ import { ContactDetailComponent } from './contact-detail/contact-detail.componen
   imports: [
     AppRoutingModule,
     BrowserModule,
+    HttpClientModule,
     InMemoryWebApiModule.forRoot(BackendService)
   ],
   providers: [],
