@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  Inject,
+  OnInit
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ContactService } from '../contact.service';
@@ -12,7 +16,9 @@ export class ContactDetailComponent implements OnInit {
 
   contact: any;
 
-  constructor(private contactService: ContactService, private route: ActivatedRoute) { }
+  constructor(
+    @Inject(ContactService) private contactService: ContactService,
+    @Inject(ActivatedRoute) private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(
