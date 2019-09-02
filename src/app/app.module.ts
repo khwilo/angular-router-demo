@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 
 import { BackendService } from './backend.service';
 import { ContactListComponent } from './contact-list/contact-list.component';
+import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContactListComponent
+    ContactListComponent,
+    ContactDetailComponent
   ],
   imports: [
     BrowserModule,
