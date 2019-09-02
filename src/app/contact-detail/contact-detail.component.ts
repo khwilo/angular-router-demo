@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { ContactService } from '../contact.service';
 
 @Component({
   selector: 'app-contact-detail',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactDetailComponent implements OnInit {
 
-  constructor() { }
+  contact: any;
+
+  constructor(private contactService: ContactService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(
+      params => {
+        console.log(params.get('id'));
+        this.contactService.getContact(
+          params.get('id')
+        ).subscribe(
+          foundContact => {
+            console.log(foundContact);
+            this.contact = foundContact;
+          }
+        );
+      }
+    );
   }
 
 }
